@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css.css" />
     <Content Include="img\10_of_clubs.png" />
     <Content Include="img\10_of_diamonds.png" />
     <Content Include="img\10_of_hearts.png" />
@@ -125,11 +126,13 @@
     <Content Include="img\queen_of_spades2.png" />
     <Content Include="img\red_joker.png" />
     <Content Include="javascripts\app.js" />
+    <Content Include="javascripts\app2.js" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\tommy.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
-    <Content Include="simpleCards.html" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
