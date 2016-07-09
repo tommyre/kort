@@ -26,12 +26,15 @@
     var aiScore = 0;
     var playerScore = 0;
 
+    //First card variable.
+    var firstCardAi = 0;
+
     // Draws a random card from the deck.
     function drawRandomCard() {
         return deck[Math.floor(Math.random() * deck.length)];
     }
 
-    // Draws cards for ai, drawing them on canvas and sets score value.
+    // Draws cards for ai and sets score value.
     function drawCardAi() {
 
             var currentCard = drawRandomCard();
@@ -40,9 +43,14 @@
                 currentImage.src = currentCard.img;
                 currentImage.onload = function () {
                 
-
-                    $('#aiCards').append('<div class="col-xs-1"><img src="' + currentCard.img + '" class="card" />')
-
+                    if (firstCardAi > 0) {
+                        $('#aiCards').append('<div class="col-xs-1"><img src="' + currentCard.img + '" class="card" />')
+                    }
+                    else {
+                        $('#aiCards').append('<div class="col-xs-1"><img src="img/cardBack.jpg" class="card" />')
+                    }
+                    //Add to firstCardAi variable.
+                    firstCardAi++;
                 };
                 
 
@@ -67,11 +75,12 @@
                 }
 
             }
+
         
 
     }
 
-    // Draws cards for player, drawing them on canvas and sets score value.
+    // Draws cards for player and sets score value.
     function drawCardPlayer() {
 
         var currentCard = drawRandomCard();
@@ -109,53 +118,31 @@
 
     }
 
+    //Clears the score.
     function clearScore() {
         aiScore = 0;
         playerScore = 0;
     }
 
+    //Writes the value of player cards to <p>.
     function drawValue() {
-        var c = document.getElementById("cardCanvas");
-        var ctx = c.getContext("2d");
-
-        ctx.font = "20px Georgia";
-
-        //clears a rectagle of the canvas so the text doesn't write over it.
-        ctx.clearRect(460, 0, 50, 500);
-
-        ctx.fillText(aiScore, 460, 105);
-        ctx.fillText(playerScore, 460, 340);
+        $('#score').text('Value of cards: '+ playerScore + '')
     }
 
-    $("#btnDraw").on("click", function () {
-
-        drawCardAi(1);
-        drawCardAi(2);
-        drawCardPlayer(3);
-        drawCardPlayer(4);
-        //calculateScore();
+    //Starting standing of cards.
+        drawCardAi();
+        drawCardPlayer();
+        drawCardAi();
+        drawCardPlayer();
         drawValue();
-        clearScore();
 
-    });
 
     $("#btnDraw2").on("click", function () {
 
         drawCardAi();
         drawCardPlayer();
+        drawValue();
 
     });
-
-    //Creates cardSlotValue variables for holding the value of the card. Set value based on rules of blackjack.
-    /* if (currentCard.cardvalue > 10 && currentCard.cardvalue < 14) {
-        window['cardSlotValue' + cardSlot] = 10;
-    }
-    else if (currentCard.cardvalue == 14) {
-        window['cardSlotValue' + cardSlot] = 11;
-    }
-    else {
-        window['cardSlotValue' + cardSlot] = currentCard.cardvalue;
-    }
-    */
 
 }())

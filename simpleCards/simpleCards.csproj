@@ -103,6 +103,7 @@
     <Content Include="img\11_of_clubs.png" />
     <Content Include="img\11_of_clubs2.png" />
     <Content Include="img\11_of_diamonds.png" />
+    <Content Include="img\cardBack.jpg" />
     <Content Include="img\jack_of_diamonds2.png" />
     <Content Include="img\11_of_hearts.png" />
     <Content Include="img\jack_of_hearts2.png" />
